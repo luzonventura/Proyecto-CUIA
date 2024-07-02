@@ -1,0 +1,9 @@
+Flask
+pandas
+opencv-python
+opencv-contrib-python
+face_recognition
+pyttsx3
+SpeechRecognition
+numpy
+pyaudio

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="main">
+    <div class="main-container">
+        <h1>
+            Bienvenido 
+            {% if username == 'Admin' %}
+                <span class="admin">{{ username }}</span>
+            {% else %}
+                {{ username }}
+            {% endif %}
+            a la Página Principal
+        </h1>
+
+        {% if imagenes_descubiertas %}
+            <div class="descubrimientos">
+                <h2>Animales Descubiertos:</h2>
+                {% for id, imagen in imagenes_descubiertas.items() %}
+                    <a href="{{ url_for('animal', animal_id=id) }}">
+                        <img src="{{ imagen }}" alt="Animal Descubierto" style="max-width: 200px; max-height: 200px;">
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form action="/tutorial" method="get">
+            <button type="submit" class="custom-button">Ir al Tutorial</button>
+        </form>
+        
+        <form action="/run_script" method="post">
+            <button type="submit" class="custom-button">Entrar al safari</button>
+        </form>
+        
+        <form action="/logout" method="post">
+            <button type="submit" class="boton-cerrar-sesion">Cerrar sesión</button>
+        </form>
+        {% if username == 'Admin' %}
+            <form action="/manage_users" method="get">
+                <button type="submit" class="custom-button">Gestionar Usuarios</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

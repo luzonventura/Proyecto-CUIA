@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Usuarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="main">
+    <div class="manage-container">
+        <h1>Gestionar Usuarios</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Descubrimientos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr id="row-{{ usuario.username }}">
+                    <td>{{ usuario.username }}</td>
+                    <td>{{ usuario.firstname or "vacío" }}</td>
+                    <td>{{ usuario.lastname or "vacío" }}</td>
+                    <td>{{ usuario.email or "vacío" }}</td>
+                    <td>
+                        {% for id in usuario.descubrimientos %}
+                            <img src="{{ url_for('static', filename=animales[id].split('static/')[1]) }}" alt="Animal Descubierto" class="discovery-img" draggable="true" data-username="{{ usuario.username }}" data-animal-id="{{ id }}">
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% if usuario.username != 'Admin' %}
+                            <button class="boton-eliminar-usuario" data-username="{{ usuario.username }}">Eliminar</button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="drop-zone" id="drop-zone">Arrastra aquí para eliminar</div>
+        <form action="/main" method="get">
+            <button type="submit" class="boton-volver-perfil">Volver a la Página Principal</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

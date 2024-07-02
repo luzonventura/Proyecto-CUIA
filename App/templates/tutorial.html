@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial de Safari Virtual</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="main">  <!-- Usamos la misma clase del main para el fondo -->
+    <div class="tutorial-container">
+        <h1>Bienvenido {% if username == 'Admin' %}
+            <span class="admin">{{ username }}</span>
+        {% else %}
+            {{ username }}
+        {% endif %} al Tutorial de Safari Virtual</h1>
+        <p>
+            ¡Hola explorador! Estás a punto de embarcarte en una emocionante aventura educativa con nuestra aplicación de Safari Virtual. Este tutorial te guiará a través de todo lo que necesitas saber para convertirte en un experto cazador de animales virtuales.
+        </p>
+        <h2>¿Qué es el Safari Virtual?</h2>
+        <p>
+            Nuestro Safari Virtual es una aplicación educativa diseñada para todas las edades, especialmente para niños. La aplicación utiliza la cámara de tu computadora para escanear marcadores que encontrarás en tu entorno. Cada vez que encuentres y escanees uno de estos marcadores, ¡descubrirás un nuevo animal!
+        </p>
+        <h2>¿Cómo Funciona?</h2>
+        <ul class="no-bullets">
+            <li><strong>Ejecuta el Programa:</strong> Desde la página principal, haz clic en el botón "Entrar al safari". Esto abrirá la webcam de tu dispositivo.</li>
+            <li><strong>Escanea los Marcadores ArUco:</strong> Usa la cámara para buscar y escanear los marcadores ArUco que tienes disponibles. Estos marcadores desencadenarán la aparición de animales virtuales en tu pantalla.</li>
+            <li><strong>Descubre y Aprende:</strong> Cada vez que captures un animal, podrás preguntar para obtener información detallada. Aprende sobre su origen, dieta, hábitat, y mucho más.</li>
+            <li><strong>Guarda tus Descubrimientos:</strong> Los animales que captures se añadirán a tu colección personal de "Animales Descubiertos". Puedes revisarlos en cualquier momento desde tu perfil.</li>
+        </ul>
+        <h2>Consejos para una Experiencia Óptima</h2>
+        <ul class="no-bullets">
+            <li>Asegúrate de que la cámara de tu dispositivo esté funcionando correctamente y tenga buena calidad de imagen.</li>
+            <li>Busca marcadores en lugares bien iluminados para una detección más precisa.</li>
+            <li>Explora diferentes entornos y desafía a tus amigos a descubrir nuevos animales contigo.</li>
+        </ul>
+        <p>
+            ¡Y eso es todo! Ahora estás listo para iniciar tu aventura en el Safari Virtual. Recuerda, cada animal que descubras te enseñará algo nuevo y emocionante. ¡Diviértete explorando y aprendiendo!
+        </p>
+        <form action="/main" method="get">
+            <button type="submit" class="boton-volver-perfil">Volver al perfil</button>
+        </form>
+    </div>
+</body>
+</html>

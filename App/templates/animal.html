@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ animal['nombre'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="animal-info main-container">
+        <h1>{{ animal['nombre'] | title }}</h1>
+        <div class="animal-cards">
+            <div class="animal-card">
+                <h2>Descripción</h2>
+                <p>{{ animal['descripcion'] }}</p>
+                <img src="{{ url_for('static', filename='images/Descripcion.png') }}" alt="Descripción">
+            </div>
+            <div class="animal-card">
+                <h2>Hábitat</h2>
+                <p>{{ animal['habitat'] }}</p>
+                <img src="{{ url_for('static', filename='images/Habitat.png') }}" alt="Hábitat">
+            </div>
+            <div class="animal-card">
+                <h2>Dieta</h2>
+                <p>{{ animal['dieta'] }}</p>
+                <img src="{{ url_for('static', filename='images/Dieta.png') }}" alt="Dieta">
+            </div>
+        </div>
+        <div class="animal-image">
+            <img src="{{ url_for('static', filename='images/' + animal['nombre'].capitalize() + '.png') }}" alt="{{ animal['nombre'] }}">
+        </div>
+        <a href="{{ url_for('main') }}"><button class="boton-volver-perfil">Volver al perfil</button></a>
+    </div>
+</body>
+</html>

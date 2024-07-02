@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Safari Virtual: Encuentros Animados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Safari Virtual: Encuentros Animados</h1>
+        <form action="/" method="post">
+            <div class="input-field">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" required placeholder="Usuario">
+            </div>
+            <div class="input-field">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" required placeholder="Contraseña">
+            </div>
+            <button type="submit" name="login" class="custom-button">Acceder</button>
+        </form>
+        <form action="/" method="post">
+            <button type="submit" name="camera_login" class="custom-button">Acceder por cámara</button>
+        </form>
+        <div class="link-formulario">
+            ¿No tienes cuenta aun? <a href="/register">Regístrate aquí</a>
+        </div>
+    </div>
+</body>
+</html>
